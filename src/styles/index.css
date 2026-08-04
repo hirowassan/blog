@@ -138,7 +138,7 @@
     --tw-prose-blockquote: var(--color-on-background);
     --tw-prose-headings: var(--color-on-background);
     --tw-prose-lead: var(--color-secondary);
-    --tw-prose-links: var(--color-primary);
+    --tw-prose-links: var(--color-secondary);
     --tw-prose-bold: var(--color-on-background);
     --tw-prose-counters: var(--color-secondary);
     --tw-prose-bullets: var(--color-secondary);
@@ -152,6 +152,7 @@
     --tw-prose-th-borders: var(--color-outline-variant);
     --tw-prose-td-borders: var(--color-outline-variant);
     color: var(--color-on-background);
+    text-wrap: pretty;
   }
 
   .prose :where(h1, h2, h3, h4, h5, h6) {
@@ -160,5 +161,19 @@
 
   .prose :where(p, li, blockquote, strong, em, figcaption, caption, td, th) {
     color: var(--color-on-background) !important;
+  }
+
+  .prose :where(a) {
+    color: var(--tw-prose-links) !important;
+    text-decoration-color: var(--color-secondary);
+  }
+
+  .prose :where(a:hover, a:focus-visible) {
+    color: var(--color-primary) !important;
+    text-decoration-color: var(--color-primary);
+  }
+
+  .prose :where(a:visited) {
+    color: var(--color-secondary) !important;
   }
 }
