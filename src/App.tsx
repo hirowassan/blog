@@ -1,14 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import { BrowserRouter } from 'react-router-dom'
+import { AppRouter } from '@/router'
+import { ThemeProvider } from '@/theme/ThemeProvider'
 
-function App() {
-  const [count, setCount] = useState(0);
-
+/** Composition root: routing and theme context wrap the whole app. */
+export function App() {
   return (
-    <>
-      <h1>Hello, Vite + React!</h1>
-    </>
-  );
+    <BrowserRouter>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </BrowserRouter>
+  )
 }
-
-export default App;
