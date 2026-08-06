@@ -31,7 +31,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 // *.pages.dev URL instead of production — see DEPLOYMENT.md).
 const SITE_URL = process.env.SITE_URL ?? 'https://hirowassan.com'
 const SITE_TITLE = "hirowassan's Blog"
-const SITE_DESCRIPTION = '技術的な発見、日々の思考、そして静かな時間の記録。'
+const SITE_DESCRIPTION = 'のんびりとした日々と思考の記録。'
 
 const articles = readMarkdownFiles('src/content/articles').map(({ slug, path, attributes }) => {
   requireFields(path, attributes, ['title', 'date', 'excerpt'])
@@ -70,9 +70,20 @@ function readMarkdownFiles(relativeDir) {
       const path = join(relativeDir, file)
       const raw = readFileSync(join(dir, file), 'utf-8')
       const { attributes } = fm(raw)
+      const normalizedAttributes = normalizeFrontmatterAttributes(attributes)
       const slug = file.replace(/\.md$/, '')
-      return { slug, path, attributes }
+      return { slug, path, attributes: normalizedAttributes }
     })
+}
+
+function normalizeFrontmatterAttributes(attributes) {
+  const normalized = { ...attributes }
+
+  if (normalized.date instanceof Date) {
+    normalized.date = normalized.date.toISOString().slice(0, 10)
+  }
+
+  return normalized
 }
 
 /** Fails loudly on malformed content, same philosophy as parseMarkdownModule.ts. */

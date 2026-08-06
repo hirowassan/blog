@@ -27,8 +27,9 @@ export function parseMarkdownModule<TFrontmatter>(
   schema: ZodType<TFrontmatter>,
 ): ParsedMarkdownModule<TFrontmatter> {
   const { attributes, body } = fm<unknown>(raw)
+  const normalizedAttributes = normalizeFrontmatterAttributes(attributes)
 
-  const result = schema.safeParse(attributes)
+  const result = schema.safeParse(normalizedAttributes)
   if (!result.success) {
     throw new Error(
       `Invalid frontmatter in "${path}":\n${result.error.issues
@@ -42,6 +43,16 @@ export function parseMarkdownModule<TFrontmatter>(
     frontmatter: result.data,
     content: body.trim(),
   }
+}
+
+function normalizeFrontmatterAttributes(attributes: unknown): Record<string, unknown> {
+  const normalized = { ...(attributes as Record<string, unknown>) }
+
+  if (normalized.date instanceof Date) {
+    normalized.date = normalized.date.toISOString().slice(0, 10)
+  }
+
+  return normalized
 }
 
 function extractSlug(path: string): string {
