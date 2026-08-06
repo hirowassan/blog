@@ -157,3 +157,10 @@ vite.config.ts.timestamp-*
 *.njsproj
 *.sln
 *.sw?
+
+# Obsidian metadata
+.obsidian/
+
+# blog template markdown
+template.md
+
