@@ -48,8 +48,8 @@ export function parseMarkdownModule<TFrontmatter>(
 function normalizeFrontmatterAttributes(attributes: unknown): Record<string, unknown> {
   const normalized = { ...(attributes as Record<string, unknown>) }
 
-  if (normalized.date instanceof Date) {
-    normalized.date = normalized.date.toISOString().slice(0, 10)
+  if (normalized['date'] instanceof Date) {
+    normalized['date'] = normalized['date'].toISOString().slice(0, 10)
   }
 
   return normalized
