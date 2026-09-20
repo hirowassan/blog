@@ -3,15 +3,22 @@
   <channel>
     <title>hirowassan&apos;s Blog</title>
     <link>https://hirowassan.com</link>
-    <description>技術的な発見、日々の思考、そして静かな時間の記録。</description>
+    <description>のんびりとした日々と思考の記録。</description>
     <language>ja</language>
     <atom:link href="https://hirowassan.com/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 04 Aug 2026 14:57:20 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 11:22:20 GMT</lastBuildDate>
+    <item>
+      <title>学園祭</title>
+      <link>https://hirowassan.com/articles/meow</link>
+      <guid isPermaLink="true">https://hirowassan.com/articles/meow</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <description>学園祭があった</description>
+    </item>
     <item>
       <title>にゃんこ</title>
-      <link>https://hirowassan.com/articles/example</link>
-      <guid isPermaLink="true">https://hirowassan.com/articles/example</guid>
-      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <link>https://hirowassan.com/articles/xx-ko</link>
+      <guid isPermaLink="true">https://hirowassan.com/articles/xx-ko</guid>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
       <description>ねこってかわいい</description>
     </item>
   </channel>
